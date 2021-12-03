@@ -40,7 +40,7 @@ def remove(name: str):
     print(f'Removed meeting {name}.')
 
 
-def clear():
+def remove_all():
     print('Are you sure you want to delete all meetings?(y/N): ', end='')
     response = input()
     if response == 'y':
