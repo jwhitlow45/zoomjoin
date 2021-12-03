@@ -24,5 +24,7 @@ def read_meetings_file():
             return None
     return meetings_data
 
-def write_meetings_file():
-    pass
+def write_meetings_file(meetings_dict: dict):
+    # write dict to json file
+    with open(MEETINGS_FILE, 'w') as FILE:
+        json.dump(meetings_dict, FILE)
