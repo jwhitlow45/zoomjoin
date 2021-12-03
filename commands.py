@@ -1,4 +1,5 @@
 import file_handler as fh
+import webbrowser
 
 def add(name: str, link: str, passwd: str = ''):
     # value for name key in dict
@@ -21,7 +22,6 @@ def add(name: str, link: str, passwd: str = ''):
     print(f'Added meeting {name}.')
 
 def remove(name: str):
-    meetings: any
     try:
         meetings = fh.read_meetings_file()
         del meetings[name]
@@ -37,8 +37,21 @@ def remove(name: str):
     
     print(f'Removed meeting {name}.')
 
-def join(meeting_name: str):
-    pass
+def join(name: str):
+    try:
+        meetings = fh.read_meetings_file()
+        link = meetings[name]['link']
+        passwd = meetings[name]['passwd']
+        
+        if passwd: print(f'Password: {passwd}')
+        webbrowser.open(link)
+        
+    except Exception as e:
+        print(f'Could not join meeting due to malformed meetings file.')
+        return
+
+    print(f'Joining meeting {name}...')
+        
 
 def list_meetings():
     meetings: any
