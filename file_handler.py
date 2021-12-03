@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 
 MEETINGS_FILE = '.meetings.json'
 
@@ -14,7 +15,8 @@ def read_meetings_file():
         try:
             meetings_data = json.load(FILE)
         except Exception as e:
-            raise Exception('Malformed meetings file.')
+            shutil.copyfile(MEETINGS_FILE, MEETINGS_FILE + '.old')
+            raise Exception('Malformed meetings file, making backup.')
     return meetings_data
 
 def write_meetings_file(meetings_dict: dict):
