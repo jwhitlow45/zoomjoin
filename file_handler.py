@@ -2,8 +2,6 @@ import json
 import os
 import shutil
 
-from json_classes import Meeting
-
 MEETINGS_FILE = '.meetings.json'
 
 def read_meetings_file():
@@ -27,4 +25,4 @@ def read_meetings_file():
 def write_meetings_file(meetings_dict: dict):
     # write dict to json file
     with open(MEETINGS_FILE, 'w') as FILE:
-        json.dump(meetings_dict, FILE)
+        json.dump(meetings_dict, FILE, sort_keys=True)
