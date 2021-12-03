@@ -16,12 +16,26 @@ def add(name: str, link: str, passwd: str = ''):
 
     # add entry to existing dict in file
     meetings[name] = value
-    print(meetings)
     # write to file
     fh.write_meetings_file(meetings)
+    print(f'Added meeting {name}.')
 
-def remove(meeting_name: str):
-    pass
+def remove(name: str):
+    meetings: any
+    try:
+        meetings = fh.read_meetings_file()
+        del meetings[name]
+        fh.write_meetings_file(meetings)
+    except KeyError as k:
+        print(f'Meeting {name} does not exist.')
+        return
+    except Exception as e:
+        print(e)
+        print(f'Overwriting original meetings file.')
+        fh.write_meetings_file({})
+        return
+    
+    print(f'Removed meeting {name}.')
 
 def join(meeting_name: str):
     pass
