@@ -1,9 +1,10 @@
 import file_handler as fh
 import webbrowser
 
+
 def add(name: str, link: str, passwd: str = ''):
     # value for name key in dict
-    value = {'link':link, 'passwd':passwd}
+    value = {'link': link, 'passwd': passwd}
     meetings: any
     try:
         meetings = fh.read_meetings_file()
@@ -21,6 +22,7 @@ def add(name: str, link: str, passwd: str = ''):
     fh.write_meetings_file(meetings)
     print(f'Added meeting {name}.')
 
+
 def remove(name: str):
     try:
         meetings = fh.read_meetings_file()
@@ -34,24 +36,26 @@ def remove(name: str):
         print(f'Overwriting original meetings file.')
         fh.write_meetings_file({})
         return
-    
+
     print(f'Removed meeting {name}.')
+
 
 def join(name: str):
     try:
         meetings = fh.read_meetings_file()
         link = meetings[name]['link']
         passwd = meetings[name]['passwd']
-        
-        if passwd: print(f'Password: {passwd}')
+
+        if passwd:
+            print(f'Password: {passwd}')
         webbrowser.open(link)
-        
+
     except Exception as e:
         print(f'Could not join meeting due to malformed meetings file.')
         return
 
     print(f'Joining meeting {name}...')
-        
+
 
 def list_meetings():
     meetings: any
@@ -61,6 +65,7 @@ def list_meetings():
         print(e)
     print(f'Available meetings are: {[key for key in meetings]}')
 
+
 def help():
-    commands = ['add','remove','join','ls']
+    commands = ['add', 'remove', 'join', 'ls']
     print(f'Available commands are: {commands}')
