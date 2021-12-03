@@ -40,6 +40,14 @@ def remove(name: str):
     print(f'Removed meeting {name}.')
 
 
+def clear():
+    print('Are you sure you want to delete all meetings?(y/N): ', end='')
+    response = input()
+    if response == 'y':
+        fh.write_meetings_file({})
+        print('Deleted all meetings.')
+
+
 def join(name: str):
     try:
         meetings = fh.read_meetings_file()
