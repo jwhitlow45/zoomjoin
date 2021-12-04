@@ -7,9 +7,8 @@ MEETINGS_FILE = '.meetings.json'
 
 def read_meetings_file():
     if not os.path.exists(MEETINGS_FILE):
-        print(
-            'No meetings file exists, try adding some meetings with the `zm add` command!')
-        return None
+        write_meetings_file({})
+        json.load(MEETINGS_FILE)
 
     # read in and return json file
     meetings_data: dict
