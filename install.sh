@@ -8,5 +8,5 @@ sudo cp * ~/scripts/zoomjoin/
 mkdir ~/bin
 sudo cp zm ~/bin/
 
-echo 'export PATH=$PATH:/home/{username}/bin MUST be added to your shell (.bashrc/.zshrc/etc) to use command zm!'
+echo 'export PATH=$PATH:/{users_folder}/{username}/bin MUST be added to your shell (.bashrc/.zshrc/etc) to use command zm!'
 echo 'Once this is done zoomjoin will be fully installed and can be used with zm [command]'
