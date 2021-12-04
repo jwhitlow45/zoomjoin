@@ -1,2 +1,4 @@
 .meetings.json*
 __pycache__/
+.DS_Store
+._*
