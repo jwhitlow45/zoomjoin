@@ -3,7 +3,7 @@ import os
 import shutil
 
 FILE_DIR = os.path.dirname(__file__)
-MEETINGS_FILE = FILE_DIR + '.meetings.json'
+MEETINGS_FILE = FILE_DIR + '/.meetings.json'
 
 
 def read_meetings_file():
