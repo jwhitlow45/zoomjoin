@@ -66,7 +66,7 @@ def join(name: str):
 
 
 def list_meetings():
-    meetings: any
+    meetings = {}
     try:
         meetings = fh.read_meetings_file()
     except Exception as e:
