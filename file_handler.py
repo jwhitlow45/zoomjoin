@@ -2,7 +2,8 @@ import json
 import os
 import shutil
 
-MEETINGS_FILE = '.meetings.json'
+FILE_DIR = os.path.dirname(__file__)
+MEETINGS_FILE = FILE_DIR + '.meetings.json'
 
 
 def read_meetings_file():
@@ -11,7 +12,7 @@ def read_meetings_file():
         return json.load(MEETINGS_FILE)
 
     # read in and return json file
-    meetings_data: dict
+    meetings_data = {}
     with open(MEETINGS_FILE, 'r') as FILE:
         try:
             meetings_data = json.load(FILE)
