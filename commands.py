@@ -5,7 +5,7 @@ import webbrowser
 def add(name: str, link: str, passwd: str = ''):
     # value for name key in dict
     value = {'link': link, 'passwd': passwd}
-    meetings: any
+    meetings = {}
     try:
         meetings = fh.read_meetings_file()
     except Exception as e:
