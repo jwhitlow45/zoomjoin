@@ -1,6 +1,14 @@
 import file_handler as fh
 import webbrowser
+from enum import Enum
 
+class Command(Enum):
+    ADD = 'add'
+    REMOVE = 'remove'
+    REMOVE_ALL = 'remove_all'
+    JOIN = 'join'
+    LS = 'ls'
+    HELP = 'help'
 
 def add(name: str, link: str, passwd: str = ''):
     # value for name key in dict
@@ -75,5 +83,8 @@ def list_meetings():
 
 
 def help():
-    commands = ['add', 'remove', 'join', 'ls']
-    print(f'Available commands are: {commands}')
+    commands = [command.value for command in Command]
+    commands = str(commands)[1:-1]
+    commands = str(commands).replace("'", "")
+    commands = str(commands).replace(",", "\n")
+    print(f'Available commands are:\n {str(commands)}')
